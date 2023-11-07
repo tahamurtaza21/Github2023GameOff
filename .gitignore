@@ -1,3 +1,6 @@
+/Content/Fantastic_Village_Pack/
+/Content/Fishes/
+/Content/Assets/
 Binaries
 DerivedDataCache
 Intermediate
@@ -12,3 +15,5 @@ Saved
 *.suo
 *.xcodeproj
 *.xcworkspace
+
+
