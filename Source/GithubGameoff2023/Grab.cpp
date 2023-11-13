@@ -30,6 +30,7 @@ void UGrab::BeginPlay()
 void UGrab::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	ReleaseFish();
 }
 
 void UGrab::GrabFish()
@@ -61,6 +62,14 @@ void UGrab::GrabFish()
 			FishHit->GetComponentByClass<USkeletalMeshComponent>()->SetVisibility(false); //fish in sea visibility off	
 		}
 		UE_LOG(LogTemp, Display, TEXT("Hit something"));
+	}
+}
+
+void UGrab::ReleaseFish()
+{
+	if(isGrabbingFish == false)
+	{
+		FishMesh->SetVisibility(false);	//attached fish visibility on
 	}
 }
 

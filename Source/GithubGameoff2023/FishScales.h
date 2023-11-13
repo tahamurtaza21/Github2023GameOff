@@ -13,13 +13,16 @@ UCLASS()
 class GITHUBGAMEOFF2023_API AFishScales : public AFish
 {
 	GENERATED_BODY()
-
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 public:
-	float AmountofScales = 6.f;
 	AFishScales();
+public:	
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
 
 private:
-	UFUNCTION(BlueprintCallable)
-	void Jump();
-	
+	void MoveToBoat(float);
+	FVector FishLocation;
 };

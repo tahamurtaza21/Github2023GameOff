@@ -4,41 +4,27 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Fish.generated.h"
+#include "ProjectileScale.generated.h"
 
 UCLASS()
-class GITHUBGAMEOFF2023_API AFish : public AActor
+class GITHUBGAMEOFF2023_API AProjectileScale : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	AFish();
+	AProjectileScale();
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditDefaultsOnly)
-	float MovementRate;
-
-	FVector PlayerLocation;
-
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	bool toDestroy = false;
-	void DestroyItself();
-	
 private:
-	UPROPERTY(EditDefaultsOnly, meta = (AllowPrivateAccess = "true"))
-	USkeletalMeshComponent* FishMesh;
+	UPROPERTY(VisibleAnywhere)
+	UStaticMeshComponent* ProjectileScaleMesh;
 
-	TSubclassOf<UParticleSystem> SmokeEffect;
-	
-	void RotateFishToBoat();
-	FVector FishLocation;
-	
 };
-	

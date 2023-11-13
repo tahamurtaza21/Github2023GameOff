@@ -18,19 +18,15 @@ AFish::AFish()
 void AFish::BeginPlay()
 {
 	Super::BeginPlay();
-
-	PlayerLocation = UGameplayStatics::GetPlayerPawn(this, 0)->GetActorLocation();
-	
+	FishLocation = GetActorLocation();
+	RotateFishToBoat();
 }
 
 // Called every frame
 void AFish::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	//SetActorLocation()
-	RotateFishToBoat();
-	MoveToBoat((DeltaTime));
+	
 	DestroyItself();
 }
 
@@ -42,21 +38,10 @@ void AFish::DestroyItself()
 	}
 }
 
-void AFish::MoveToBoat(float DeltaTime)
-{
-	FVector ToTarget = PlayerLocation - GetActorLocation();
-	FVector GoTo = DeltaTime * MovementRate * ToTarget;
-	GoTo.Z = 0.f;
-	AddActorWorldOffset(GoTo);
-}
-
 
 void AFish::RotateFishToBoat()
 {
-	FVector ToTarget = PlayerLocation - GetActorLocation();
+	FVector ToTarget = PlayerLocation - FishLocation;
 	FRotator LookAt = FRotator(0, ToTarget.Rotation().Yaw - 90 , 0);
-	FishMesh->SetWorldRotation(FMath::RInterpTo(FishMesh->GetComponentRotation(),
-		LookAt, 
-		UGameplayStatics::GetWorldDeltaSeconds(this),
-		5));
+	FishMesh->SetWorldRotation(LookAt);
 }

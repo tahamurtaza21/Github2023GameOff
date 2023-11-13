@@ -4,9 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/SceneComponent.h"
-#include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "Grab.generated.h"
-
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class GITHUBGAMEOFF2023_API UGrab : public USceneComponent
@@ -34,12 +32,11 @@ private:
 	UStaticMeshComponent* FishMesh;
 
 	void SetController();
-
 	
 	class AFish* FishHit;
 
-	
-
 	UFUNCTION(BlueprintCallable)
 	void GrabFish();
+
+	void ReleaseFish();
 };

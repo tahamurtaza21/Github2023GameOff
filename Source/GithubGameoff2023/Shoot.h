@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ProjectileScale.h"
 #include "Components/ActorComponent.h"
 #include "Shoot.generated.h"
 
@@ -19,10 +20,22 @@ public:
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
+	UFUNCTION(BlueprintCallable)
+	void ShootScales();
 
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	
+private:
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<AProjectileScale> Projectiles;
 
-		
+	int ProjectilesCount = 6;
+	int AmountOfTimesToShoot = 6;
+	class UGrab* Grabber;
+
+	FVector SpawnLocation;
+	FRotator SpawnRotation;
+	
 };
