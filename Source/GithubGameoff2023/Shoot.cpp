@@ -37,13 +37,17 @@ void UShoot::ShootScales()
 	{
 		for(int i = 0; i < ProjectilesCount; i++)
 		{
-			AProjectileScale* Projectile = GetWorld()->SpawnActor<AProjectileScale>(Projectiles,SpawnLocation,SpawnRotation);
-			SpawnLocation = Grabber->GetComponentLocation() + FMath::RandRange(5,15);
+			SpawnLocation.Z = Grabber->GetComponentLocation().Z;
+			SpawnLocation.X = Grabber->GetComponentLocation().X + FMath::FRandRange(-20.f,20.f);
+			SpawnLocation.Y = Grabber->GetComponentLocation().Y + FMath::FRandRange(-20.f,20.f);
 			SpawnRotation = Grabber->GetComponentRotation();
-			SpawnRotation.Yaw += FMath::RandRange(0,20);
+			SpawnRotation.Yaw += FMath::RandRange(-20,20);
+			
+			AProjectileScale* Projectile = GetWorld()->SpawnActor<AProjectileScale>(Projectiles,SpawnLocation,SpawnRotation);
+			
 			if(Projectile->GetComponentByClass<UPrimitiveComponent>())
 			{
-				Projectile->GetComponentByClass<UPrimitiveComponent>()->AddImpulse(Grabber->GetForwardVector()*500);
+				Projectile->GetComponentByClass<UPrimitiveComponent>()->AddImpulse(Grabber->GetForwardVector()*1000);
 			}
 			
 		}
