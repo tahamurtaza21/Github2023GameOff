@@ -28,9 +28,6 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	bool toDestroy = false;
-	void DestroyItself();
-	
 private:
 	UPROPERTY(EditDefaultsOnly, meta = (AllowPrivateAccess = "true"))
 	USkeletalMeshComponent* FishMesh;

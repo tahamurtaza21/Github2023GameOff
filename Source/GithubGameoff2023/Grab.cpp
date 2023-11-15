@@ -42,7 +42,7 @@ void UGrab::GrabFish()
 
 	PlayerController->GetPlayerViewPoint(StartLocation, StartRotation);
 
-	UE_LOG(LogTemp, Display, TEXT("%s"), *StartLocation.ToCompactString());
+	//UE_LOG(LogTemp, Display, TEXT("%s"), *StartLocation.ToCompactString());
 
 	GetWorld()->SweepSingleByChannel(OutHit, StartLocation, StartLocation + (StartRotation.Vector() * 3000), FQuat::Identity, ECC_GameTraceChannel1, FCollisionShape::MakeSphere(20.f));
 	
@@ -57,9 +57,10 @@ void UGrab::GrabFish()
 		{
 			isGrabbingFish = true;
 			FishMesh->SetVisibility(true);	//attached fish visibility on
-			UE_LOG(LogTemp, Display, TEXT("Got Fish"));
+			//UE_LOG(LogTemp, Display, TEXT("Got Fish"));
 			FishHit->SetActorEnableCollision(false);
-			FishHit->GetComponentByClass<USkeletalMeshComponent>()->SetVisibility(false); //fish in sea visibility off	
+			FishHit->GetComponentByClass<USkeletalMeshComponent>()->SetVisibility(false); //fish in sea visibility off
+			FishHit->Destroy();
 		}
 		UE_LOG(LogTemp, Display, TEXT("Hit something"));
 	}

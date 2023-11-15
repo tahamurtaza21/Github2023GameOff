@@ -26,18 +26,7 @@ void AFish::BeginPlay()
 void AFish::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	
-	DestroyItself();
 }
-
-void AFish::DestroyItself()
-{
-	if(toDestroy)
-	{
-		Destroy();
-	}
-}
-
 
 void AFish::RotateFishToBoat()
 {
