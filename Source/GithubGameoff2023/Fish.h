@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Boat.h"
 #include "Fish.generated.h"
 
 UCLASS()
@@ -23,7 +24,9 @@ protected:
 	float MovementRate;
 
 	FVector PlayerLocation;
-
+	//APawn* PlayerPawn;
+	UPROPERTY()
+	class ABoat* Boat;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

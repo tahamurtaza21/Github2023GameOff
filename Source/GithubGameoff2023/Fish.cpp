@@ -19,6 +19,15 @@ void AFish::BeginPlay()
 {
 	Super::BeginPlay();
 	FishLocation = GetActorLocation();
+
+	TSubclassOf<ABoat> BoatClass = ABoat::StaticClass();
+	Boat = Cast<ABoat>(UGameplayStatics::GetActorOfClass(this, BoatClass));
+	
+	if(Boat != nullptr)
+	{
+		PlayerLocation = Boat->GetActorLocation();
+		//UE_LOG(LogTemp,Display, TEXT("Got Locaiton %s"),*PlayerLocation.ToCompactString() );
+	}
 	RotateFishToBoat();
 }
 

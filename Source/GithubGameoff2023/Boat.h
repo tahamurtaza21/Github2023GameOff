@@ -4,16 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "ProjectileScale.generated.h"
+#include "Boat.generated.h"
 
 UCLASS()
-class GITHUBGAMEOFF2023_API AProjectileScale : public AActor
+class GITHUBGAMEOFF2023_API ABoat : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	AProjectileScale();
+	ABoat();
 
 protected:
 	// Called when the game starts or when spawned
@@ -23,13 +23,4 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditAnywhere)
-	float Damage = 3.f;
-
-private:
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* ProjectileScaleMesh;
-
-	UFUNCTION()
-	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherHit, UPrimitiveComponent* OtherComp,FVector NormalImpulse,const FHitResult& Hit);
 };
