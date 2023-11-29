@@ -72,12 +72,12 @@ void AFishShark::Attack()
 	}
 	
 	BoatHealth->Health -= BiteDamage;
-	UE_LOG(LogTemp,Warning, TEXT("Boat Hit"));
+	//UE_LOG(LogTemp,Warning, TEXT("Boat Hit"));
 
 	if(BoatHealth->Health <= 0.f)
 	{
 		BoatHealth->Death();
-		UE_LOG(LogTemp,Warning, TEXT("DEd"));
+		//UE_LOG(LogTemp,Warning, TEXT("DEd"));
 		canAttack = false;
 	}
 }

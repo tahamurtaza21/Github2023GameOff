@@ -20,7 +20,7 @@ public:
 	float Health = 100.f;
 
 	void Death();
-
+	
 	//UFUNCTION(BlueprintCallable)
 	//void SetBoatReference(class );
 

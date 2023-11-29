@@ -30,7 +30,8 @@ public:
 private:
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<AProjectileScale> Projectiles;
-
+	
+	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	int ProjectilesCount = 6;
 	int AmountOfTimesToShoot = 6;
 	class UGrab* Grabber;

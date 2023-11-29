@@ -1,10 +1,12 @@
-Content/Fantastic_Village_Pack/
+/Content/Fantastic_Village_Pack/
+/Content/Simple_People_2_SourceFiles/
 Binaries
 DerivedDataCache
 Intermediate
 Saved
 .vscode
 .vs
+*.uasset
 *.VC.db
 *.opensdf
 *.opendb
@@ -15,3 +17,6 @@ Saved
 *.xcworkspace
 
 
+
+/Content/Assets/Boat/
+/Content/Assets/Low_Poly_Knife/

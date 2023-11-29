@@ -26,7 +26,7 @@ void AFish::BeginPlay()
 	if(Boat != nullptr)
 	{
 		PlayerLocation = Boat->GetActorLocation();
-		//UE_LOG(LogTemp,Display, TEXT("Got Locaiton %s"),*PlayerLocation.ToCompactString() );
+		//UE_LOG(LogTemp,Display, TEXT("Got Location %s"),*PlayerLocation.ToCompactString() );
 	}
 	RotateFishToBoat();
 }

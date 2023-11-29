@@ -46,7 +46,7 @@ void UGrab::GrabFish()
 
 	GetWorld()->SweepSingleByChannel(OutHit, StartLocation, StartLocation + (StartRotation.Vector() * 3000), FQuat::Identity, ECC_GameTraceChannel1, FCollisionShape::MakeSphere(20.f));
 	
-	DrawDebugSphere(GetWorld(), OutHit.ImpactPoint, 20, 5, FColor::Red, false, 2.f);
+	//DrawDebugSphere(GetWorld(), OutHit.ImpactPoint, 20, 5, FColor::Red, false, 2.f);
 
 	if (!isGrabbingFish && &OutHit != nullptr)
 	{

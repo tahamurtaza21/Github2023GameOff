@@ -49,7 +49,7 @@ void UShoot::ShootScales()
 			
 				if(Projectile->GetComponentByClass<UPrimitiveComponent>())
 				{
-					Projectile->GetComponentByClass<UPrimitiveComponent>()->AddImpulse(Grabber->GetForwardVector()*1000);
+					Projectile->GetComponentByClass<UPrimitiveComponent>()->AddImpulse(Grabber->GetForwardVector()*1200);
 				}
 			}
 		}
