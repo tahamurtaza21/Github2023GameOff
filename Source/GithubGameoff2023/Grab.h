@@ -38,5 +38,7 @@ private:
 	UFUNCTION(BlueprintCallable)
 	void GrabFish();
 
+	class UShoot* Shooter;
+
 	void ReleaseFish();
 };

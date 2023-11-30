@@ -27,6 +27,9 @@ public:
 	float BiteDamage = 5.f;
 	
 	class UHealthBoat* BoatHealth;
+
+	UPROPERTY(BlueprintReadOnly)
+	bool canAttack = false;
 	
 protected:
 	// Called when the game starts or when spawned
@@ -38,8 +41,7 @@ private:
 	float AttackTimerRate = 2.f;
 
 	void Attack();
-
-	bool canAttack = false;
+	
 	FVector FishPosition;
 	
 	UPROPERTY(EditDefaultsOnly)
@@ -51,4 +53,11 @@ private:
 	void DamageTaken(AActor* DamagedActor, float Damage, const UDamageType* DamageType, class AController* Controller, AActor* DamageCauser);
 	
 	void Death();
+	
+	UPROPERTY(EditAnywhere)
+    TSubclassOf<class UCameraShakeBase> CameraShakeClass;
+    
+    UPROPERTY(EditDefaultsOnly)
+    USoundBase* ChompSound;
+
 };

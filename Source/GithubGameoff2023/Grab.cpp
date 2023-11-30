@@ -3,6 +3,7 @@
 
 #include "Grab.h"
 #include "Fish.h"
+#include "Shoot.h"
 
 // Sets default values for this component's properties
 UGrab::UGrab()
@@ -17,7 +18,7 @@ void UGrab::BeginPlay()
 {
 	Super::BeginPlay();
 	SetController();
-
+	Shooter = GetOwner()->FindComponentByClass<UShoot>();
 	FishMesh = Cast<UStaticMeshComponent>(GetChildComponent(0));
 	if(FishMesh != nullptr)
 	{
@@ -58,11 +59,12 @@ void UGrab::GrabFish()
 			isGrabbingFish = true;
 			FishMesh->SetVisibility(true);	//attached fish visibility on
 			//UE_LOG(LogTemp, Display, TEXT("Got Fish"));
+			Shooter->AmountOfTimesToShoot = 5;
 			FishHit->SetActorEnableCollision(false);
 			FishHit->GetComponentByClass<USkeletalMeshComponent>()->SetVisibility(false); //fish in sea visibility off
 			FishHit->Destroy();
 		}
-		UE_LOG(LogTemp, Display, TEXT("Hit something"));
+		//UE_LOG(LogTemp, Display, TEXT("Hit something"));
 	}
 }
 

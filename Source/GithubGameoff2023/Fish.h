@@ -32,7 +32,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
-	UPROPERTY(EditDefaultsOnly, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,meta = (AllowPrivateAccess = "true"))
 	USkeletalMeshComponent* FishMesh;
 
 	TSubclassOf<UParticleSystem> SmokeEffect;

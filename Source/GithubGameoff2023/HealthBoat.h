@@ -16,7 +16,7 @@ public:
 	// Sets default values for this component's properties
 	UHealthBoat();
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadOnly)
 	float Health = 100.f;
 
 	void Death();
