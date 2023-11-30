@@ -26,9 +26,7 @@ void AProjectileScale::BeginPlay()
 void AProjectileScale::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	TimePassed += DeltaTime;
 
-	DestroyTheScale();
 }
 
 void AProjectileScale::OnHit(UPrimitiveComponent* HitComp, AActor* OtherHit, UPrimitiveComponent* OtherComp,
@@ -40,17 +38,8 @@ void AProjectileScale::OnHit(UPrimitiveComponent* HitComp, AActor* OtherHit, UPr
 	if (OtherHit && OtherHit != this)
 	{
 		UGameplayStatics::ApplyDamage(OtherHit, Damage, MyInstigatorController, this, DamageTypeClass);
-		//UE_LOG(LogTemp, Display, TEXT("Hit"));
+		UE_LOG(LogTemp, Display, TEXT("Hit"));
 	}
 	Destroy();
-}
-
-void AProjectileScale::DestroyTheScale()
-{
-	if(TimePassed >= 5.f)
-	{
-		//UE_LOG(LogTemp, Display, TEXT("Destroyed"));
-		Destroy();
-	}
 }
 

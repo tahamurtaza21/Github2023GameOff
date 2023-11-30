@@ -17,9 +17,6 @@ public:
 	// Sets default values for this component's properties
 	UShoot();
 
-	UPROPERTY(BlueprintReadOnly)
-	int AmountOfTimesToShoot = 0;
-	
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -34,8 +31,9 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<AProjectileScale> Projectiles;
 	
+	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	int ProjectilesCount = 6;
-
+	int AmountOfTimesToShoot = 6;
 	class UGrab* Grabber;
 
 	FVector SpawnLocation;

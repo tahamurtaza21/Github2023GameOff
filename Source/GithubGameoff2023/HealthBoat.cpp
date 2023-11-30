@@ -26,7 +26,7 @@ void UHealthBoat::BeginPlay()
 
 void UHealthBoat::Death()
 {
-	//UE_LOG(LogTemp,Display, TEXT("Dead"));
+	UE_LOG(LogTemp,Display, TEXT("Dead"));
 	APawn* Player = UGameplayStatics::GetPlayerPawn(this, 0);
 	if(Player != nullptr)
 	{
@@ -36,5 +36,6 @@ void UHealthBoat::Death()
 	{
 		UE_LOG(LogTemp,Display, TEXT("Player Pawn not Found"));
 	}
+	
 }
 

@@ -24,9 +24,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY(EditAnywhere)
-	float Damage = 5.f;
-
-	float TimePassed;
+	float Damage = 3.f;
 
 private:
 	UPROPERTY(VisibleAnywhere)
@@ -34,6 +32,4 @@ private:
 
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherHit, UPrimitiveComponent* OtherComp,FVector NormalImpulse,const FHitResult& Hit);
-
-	void DestroyTheScale();
 };

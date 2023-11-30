@@ -2,9 +2,7 @@
 
 #include "FishShark.h"
 #include "TimerManager.h"
-#include "Kismet/GameplayStatics.h"
 #include "HealthBoat.h"
-#include "LegacyCameraShake.h"
 
 
 AFishShark::AFishShark()
@@ -20,10 +18,7 @@ void AFishShark::BeginPlay()
 	OnTakeAnyDamage.AddDynamic(this, &AFishShark::DamageTaken);
 	GetWorldTimerManager().SetTimer(AttackTimer,this,&AFishShark::Attack,AttackTimerRate,true);
 
-	if(UGameplayStatics::GetPlayerPawn(this,0) != nullptr)
-	{
-		BoatHealth = UGameplayStatics::GetPlayerPawn(this,0)->GetComponentByClass<UHealthBoat>();	
-	}
+	BoatHealth = Boat->GetComponentByClass<UHealthBoat>();
 }
 
 void AFishShark::Tick(float DeltaTime)
@@ -75,23 +70,11 @@ void AFishShark::Attack()
 	{
 		return;
 	}
-
-	if(BoatHealth != nullptr)
-	{
-		BoatHealth->Health -= BiteDamage;
-		if (CameraShakeClass)
-		{
-			GetWorld()->GetFirstPlayerController()->ClientStartCameraShake(CameraShakeClass);
-		}
-		if(ChompSound)
-		{
-			UGameplayStatics::PlaySoundAtLocation(this,ChompSound,GetActorLocation());
-		}
-	}
 	
+	BoatHealth->Health -= BiteDamage;
 	//UE_LOG(LogTemp,Warning, TEXT("Boat Hit"));
 
-	if(BoatHealth && BoatHealth->Health <= 0.f)
+	if(BoatHealth->Health <= 0.f)
 	{
 		BoatHealth->Death();
 		//UE_LOG(LogTemp,Warning, TEXT("DEd"));

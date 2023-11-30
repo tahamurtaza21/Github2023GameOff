@@ -33,9 +33,8 @@ void UShoot::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponent
 
 void UShoot::ShootScales()
 {
-	if(Grabber && Grabber->isGrabbingFish == true && AmountOfTimesToShoot > -1)
+	if(Grabber && Grabber->isGrabbingFish == true && AmountOfTimesToShoot > 0)
 	{
-		AmountOfTimesToShoot--;
 		for(int i = 0; i < ProjectilesCount; i++)
 		{
 			SpawnLocation.Z = Grabber->GetComponentLocation().Z;
@@ -54,10 +53,11 @@ void UShoot::ShootScales()
 				}
 			}
 		}
-		
+		AmountOfTimesToShoot--;
 		if(AmountOfTimesToShoot <= 0)
 		{
 			Grabber->isGrabbingFish = false;
+			AmountOfTimesToShoot = 6;
 		}
 	}
 }
