@@ -11,3 +11,4 @@ Fantastic Village Pack
 Deadly Cute Font by Hawtpixel    
 Fantastic Village Pack by Tidal Flask Studios   
 Learning Kit by Epic Games    
+Simple People by SyntyStore
